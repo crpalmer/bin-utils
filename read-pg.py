@@ -26,6 +26,13 @@ class HTMLFilter(HTMLParser):
 data = json.load(sys.stdin)
 for article in data['articles']:
   print(article['title'])
+
+  if 'pubDate' in article:
+    print(article['pubDate'], end='')
+    if 'contentModified' in article:
+      print(" (modified " + article['contentModified'] + ")", end='')
+    print()
+
   # print(article['body'])
   f = HTMLFilter()
   f.feed(article['body'])
