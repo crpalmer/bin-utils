@@ -20,5 +20,4 @@ then
 fi
 
 echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader"
-rm -rf "$vmlinuz" "$initramfs" "$modules" $loader
-
+sudo rm -rf "$vmlinuz" "$initramfs" "$modules" $loader
