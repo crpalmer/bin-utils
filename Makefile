@@ -1,6 +1,8 @@
 PG_UTILS = read-pg.py read-pg.sh
 
-UTILS = $(PG_UTILS) \
+UTILS = \
+	compiled-kernels \
+	$(PG_UTILS) \
 	rdp-tunnel.sh \
 	remove-compiled-kernel \
 
