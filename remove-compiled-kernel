@@ -21,3 +21,5 @@ fi
 
 echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader"
 sudo rm -rf "$vmlinuz" "$initramfs" "$modules" $loader
+echo "Updating bootlist"
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
