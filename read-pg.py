@@ -14,7 +14,13 @@ class HTMLFilter(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         if tag == "p" or tag == "h2" or tag == "li":
-            self.collect(tag == "li")
+            self.collect('\n\n')
+        if tag == "li":
+            self.collect('\n')
+        if tag == "br":
+            self.collect('')
+            self.text += '\n'
+
         if tag == "h2":
             self.p += " *** "
         if tag == "li":
@@ -23,17 +29,16 @@ class HTMLFilter(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "h2":
             self.p += " *** "
-        if tag == "p" or tag == "h2" or tag == "li":
-            self.collect(tag == "li")
+        if tag == "p" or tag == "h2":
+            self.collect('\n\n')
+        if tag == "li":
+            self.collect('\n')
 
-    def collect(self, is_li):
+    def collect(self, sep):
         self.p = self.p.strip()
         if len(self.p) > 0:
             self.text += textwrap.fill(f.p, width = 80)
-            if is_li:
-                self.text += '\n'
-            else:
-                self.text += '\n\n'
+            self.text += sep
             self.p = ""
 
     def get_text(self):
