@@ -6,6 +6,7 @@ BASHRC = \
 PG_UTILS = read-pg.py read-pg.sh
 
 UTILS = \
+	cmake-debug \
 	compiled-kernels \
 	$(PG_UTILS) \
 	rdp-tunnel.sh \
