@@ -15,6 +15,7 @@ all:
 	echo "Try make install"
 
 install:
+	cp vimrc ~/.vimrc
 	mkdir -p ~/.bashrc.d/
 	cp $(BASHRC) ~/.bashrc.d/
 	cp $(UTILS) ~/bin/
