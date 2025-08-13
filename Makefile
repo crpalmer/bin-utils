@@ -18,4 +18,5 @@ install:
 	cp vimrc ~/.vimrc
 	mkdir -p ~/.bashrc.d/
 	cp $(BASHRC) ~/.bashrc.d/
+	if ! grep -q 'bashrc.d' ~/.bashrc; then cat bashrc.d >> ~/.bashrc; fi
 	cp $(UTILS) ~/bin/
