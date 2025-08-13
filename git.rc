@@ -1,0 +1,10 @@
+alias gc="git cherry-pick"
+alias log="git log --pretty=oneline --no-merges"
+
+function log2() {
+  if [ $# -eq 0 ]; then
+    echo "Specify commit or commit range to view"
+  else
+    git log --pretty=oneline --no-merges $* | sort -k2 | less
+  fi
+}

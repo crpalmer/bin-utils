@@ -1,3 +1,8 @@
+BASHRC = \
+	core.rc \
+	git.rc \
+	pico.rc \
+
 PG_UTILS = read-pg.py read-pg.sh
 
 UTILS = \
@@ -10,4 +15,6 @@ all:
 	echo "Try make install"
 
 install:
+	mkdir -p ~/.bashrc.d/
+	cp $(BASHRC) ~/.bashrc.d/
 	cp $(UTILS) ~/bin/
