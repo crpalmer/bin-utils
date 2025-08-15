@@ -3,7 +3,7 @@ BASHRC = \
 	git.rc \
 	pico.rc \
 
-PG_UTILS = read-pg.py read-pg.sh
+PG_UTILS = _pg-read.py pg-read.sh
 
 UTILS = \
 	cmake-debug \
