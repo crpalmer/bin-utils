@@ -2,7 +2,6 @@ BASHRC = \
 	core.rc \
 	git.rc \
 	linux.rc \
-	kernel.rc \
 	pico.rc \
 
 PG_UTILS = _pg-read.py pg-read.sh
