@@ -1,0 +1,2 @@
+# cross compile for arm64 and install in /tmp/boot
+alias make-arm64="make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_PATH=/tmp/boot INSTALL_MOD_PATH=/tmp/boot INSTALLKERNEL=NOTinstallkerne"
