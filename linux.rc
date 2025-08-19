@@ -1,2 +1,9 @@
 # cross compile for arm64 and install in /tmp/boot
 alias make-arm64="make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_PATH=/tmp/boot INSTALL_MOD_PATH=/tmp/boot INSTALLKERNEL=NOTinstallkerne"
+if [ -d /etc/flash-kernel ]; then
+  alias make-kernel-install="sudo make modules_install && sudo make INSTALL_DTBS_PATH=/etc/flash-kernel/dtbs dtbs_install && sudo make install"
+elif [ -d /boot/dtbs ]; then
+  alias make-kernel-install="sudo make modules_install && sudo make dtbs_install && sudo make install"
+else
+  alias make-kernel-install="sudo make modules_install && sudo make install"
+fi
