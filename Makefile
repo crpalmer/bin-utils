@@ -17,6 +17,7 @@ all:
 	echo "Try make install"
 
 install:
+	if [ -d /boot/dtbs ]; then sudo mkdir -p /root/bin/ && sudo cp installkernel /root/bin/; fi
 	mkdir -p ~/.bashrc.d/ ~/bin/
 	cp vimrc ~/.vimrc
 	cp $(BASHRC) ~/.bashrc.d/

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Install /boot/config-$1"
+cp .config /boot/config-$1
+echo "Install"
+/sbin/installkernel $*
+echo "Fix DT " /boot/loader/entries/*-$1.conf
+echo "devicetree /dtbs/$1/qcom/x1e80100-lenovo-yoga-slim7x.dtb" >> /boot/loader/entries/*-$1.conf
