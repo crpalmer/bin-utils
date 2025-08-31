@@ -17,7 +17,10 @@ all:
 	echo "Try make install"
 
 install:
-	if [ -d /boot/dtbs ]; then sudo mkdir -p /root/bin/ && sudo cp installkernel /root/bin/; fi
+	if [ -d /boot/dtbs ]; then \
+	    sudo mkdir -p /root/bin/ && sudo cp installkernel /root/bin/ && \
+	    sudo cp 50-slim7x.conf /etc/dracut.conf.d/ ; \
+	fi
 	mkdir -p ~/.bashrc.d/ ~/bin/
 	cp vimrc ~/.vimrc
 	cp $(BASHRC) ~/.bashrc.d/
