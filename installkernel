@@ -2,6 +2,13 @@
 
 echo "Install /boot/config-$1"
 cp .config /boot/config-$1
+echo "Install /boot/git-$1"
+echo -n "Current head: " > /boot/git-$1
+git show | head -1 >> /boot/git-$1
+echo "---------- git status ----------------" >> /boot/git-$1
+git status >> /boot/git-$1
+echo "---------- git diff ------------------" >> /boot/git-$1
+git diff >> /boot/git-$1
 echo "Install"
 /sbin/installkernel $*
 echo "Fix DT " /boot/loader/entries/*-$1.conf

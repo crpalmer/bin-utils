@@ -12,6 +12,7 @@ modules="/lib/modules/$1"
 loader="/boot/loader/entries/*-$1.conf"
 dtbs="/boot/dtbs/$1"
 config="/boot/config-$1"
+git="/boot/git-$1"
 
 echo $loader
 
@@ -21,7 +22,7 @@ then
    exit 2
 fi
 
-echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader" "$dtbs" "$config"
-sudo rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config
+echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader" "$dtbs" "$config" "$git"
+sudo rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config $git
 echo "Updating bootlist"
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
