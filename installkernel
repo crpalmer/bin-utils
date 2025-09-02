@@ -11,7 +11,15 @@ echo "---------- git diff ------------------" >> /boot/git-$1
 git diff >> /boot/git-$1
 echo "Install"
 /sbin/installkernel $*
-echo "Fix DT " /boot/loader/entries/*-$1.conf
-for i in /boot/loader/entries/*-$1.conf; do
-    perl -pi -e "s/^$/devicetree \/dtbs\/$1\/qcom\/x1e80100-lenovo-yoga-slim7x.dtb/" $i
-done
+if [ -d /proc/device-tree ]; then
+  echo "Fix DT " /boot/loader/entries/*-$1.conf
+  if grep -q lenovo,yoga-slim7x /proc/device-tree/compatible ; then
+    dtb=x1e80100-lenovo-yoga-slim7x
+  else
+    echo "Failed to identify device tree, aborting."
+    exit 1
+  fi
+  for i in /boot/loader/entries/*-$1.conf; do
+    perl -pi -e "s/^$/devicetree \/dtbs\/$1\/qcom\/$dtb.dtb/" $i
+  done
+fi
