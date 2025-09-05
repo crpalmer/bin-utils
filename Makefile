@@ -4,6 +4,10 @@ BASHRC = \
 	linux.rc \
 	pico.rc \
 
+DRACUT = \
+	50-slim7x.conf \
+	51-usb-storage.conf \
+
 PG_UTILS = _pg-read.py pg-read.sh
 
 UTILS = \
@@ -19,7 +23,7 @@ all:
 
 install:
 	if [ -d /boot/dtbs ]; then \
-	    sudo cp 50-slim7x.conf /etc/dracut.conf.d/ ; \
+	    sudo cp $(DRACUT) /etc/dracut.conf.d/ ; \
 	fi
 	sudo mkdir -p /root/bin/ && sudo cp installkernel /root/bin/
 	mkdir -p ~/.bashrc.d/ ~/bin/
