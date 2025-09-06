@@ -12,15 +12,14 @@ PG_UTILS = _pg-read.py pg-read.sh
 
 ROOT = \
 	installkernel \
+	kernel-status.py \
 	remove-compiled-kernel \
 
 UTILS = \
 	cmake-debug \
 	compiled-kernels \
-	kernel-status.py \
 	$(PG_UTILS) \
 	rdp-tunnel.sh \
-	remove-compiled-kernel \
 
 all:
 	echo "Try make install"
