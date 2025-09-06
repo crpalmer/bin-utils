@@ -37,7 +37,6 @@ initrd = load_directory("/boot", "initramfs-", ".img")
 config = load_directory("/boot", "config-")
 loader = load_directory("/boot/loader/entries", find_prefix(), ".conf")
 
-print(loader)
 print("Installed kernels:")
 print("==================")
 
