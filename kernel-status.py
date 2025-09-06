@@ -21,7 +21,6 @@ modules = load_directory("/usr/lib/modules")
 initrd = load_directory("/boot", "initramfs-", ".img")
 config = load_directory("/boot", "config-")
 
-print(modules)
 print("Installed kernels:")
 print("==================")
 
