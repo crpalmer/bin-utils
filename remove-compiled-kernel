@@ -23,6 +23,6 @@ then
 fi
 
 echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader" "$dtbs" "$config" "$git"
-sudo rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config $git
+rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config $git
 echo "Updating bootlist"
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-mkconfig -o /boot/grub2/grub.cfg

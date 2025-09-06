@@ -10,6 +10,10 @@ DRACUT = \
 
 PG_UTILS = _pg-read.py pg-read.sh
 
+ROOT = \
+	installkernel \
+	remove-compiled-kernel \
+
 UTILS = \
 	cmake-debug \
 	compiled-kernels \
@@ -25,7 +29,7 @@ install:
 	if [ -d /boot/dtbs ]; then \
 	    sudo cp $(DRACUT) /etc/dracut.conf.d/ ; \
 	fi
-	sudo mkdir -p /root/bin/ && sudo cp installkernel /root/bin/
+	sudo mkdir -p /root/bin/ && sudo cp $(ROOT) /root/bin/
 	mkdir -p ~/.bashrc.d/ ~/bin/
 	cp vimrc ~/.vimrc
 	cp $(BASHRC) ~/.bashrc.d/
