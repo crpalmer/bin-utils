@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ "$1" == "" ]
+then
+   echo "You must specify the version to remove"
+   exit 1
+fi
+
+vmlinuz="/boot/vmlinuz-$1"
+initramfs="/boot/initramfs-$1.img"
+modules="/lib/modules/$1"
+loader="/boot/loader/entries/*-$1.conf"
+dtbs="/boot/dtbs/$1"
+config="/boot/config-$1"
+git="/boot/git-$1"
+
+if [ ! -e "$vmlinuz" ]
+then
+   echo "Kernel not installed: no $vmlinuz"
+   exit 2
+fi
+
+tar cvf /tmp/kernel-$1.tar "$vmlinuz" "$initramfs" $loader
+for add in "$modules" $dtbs $config $git
+do
+    if [ -e "$add" ]; then
+	echo "Adding: $add"
+	tar rf /tmp/kernel-$1.tar $add
+    fi
+done

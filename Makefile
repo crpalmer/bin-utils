@@ -13,6 +13,7 @@ PG_UTILS = _pg-read.py pg-read.sh
 ROOT = \
 	installkernel \
 	kernel-status.py \
+	package-compiled-kernel \
 	remove-compiled-kernel \
 
 UTILS = \

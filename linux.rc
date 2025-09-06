@@ -9,3 +9,4 @@ else
 fi
 alias remove-compiled-kernel="sudo /root/bin/remove-compiled-kernel"
 alias kernel-status="sudo /root/bin/kernel-status.py"
+alias package-compiled-kernel="sudo /root/bin/package-compiled-kernel"
