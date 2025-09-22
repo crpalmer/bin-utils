@@ -19,6 +19,7 @@ ROOT = \
 UTILS = \
 	cmake-debug \
 	compiled-kernels \
+	orca-postprocess.sh \
 	$(PG_UTILS) \
 	rdp-tunnel.sh \
 
