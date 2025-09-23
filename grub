@@ -1,3 +1,7 @@
+# You may also need to run:
+#    sudo grub2-editenv - unset menu_auto_hide
+# to get a visible grub menu on boot.
+
 GRUB_TIMEOUT=15
 GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
 GRUB_DEFAULT=saved
