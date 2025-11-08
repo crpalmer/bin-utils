@@ -17,6 +17,7 @@ ROOT = \
 	remove-compiled-kernel \
 
 UTILS = \
+	build-orca.sh \
 	cmake-debug \
 	compiled-kernels \
 	orca-postprocess.sh \
