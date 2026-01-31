@@ -16,6 +16,16 @@ ROOT = \
 	package-compiled-kernel \
 	remove-compiled-kernel \
 
+# To start a service you sould do:
+# sudo systemctl daemon-reload
+# sudo systemctl enable XXXX.service
+# sudo systemctl start XXXX.servivce
+
+SERVICES = \
+	foundry.service \
+	foundry-james.service \
+	minecraft.service \
+
 UTILS = \
 	build-orca.sh \
 	cmake-debug \
@@ -37,3 +47,4 @@ install:
 	cp $(BASHRC) ~/.bashrc.d/
 	if ! grep -q 'bashrc.d' ~/.bashrc; then cat bashrc.d >> ~/.bashrc; fi
 	cp $(UTILS) ~/bin/
+	if [ -d /etc/systemd/system ]; then sudo cp $(SERVICES) /etc/systemd/system; fi
