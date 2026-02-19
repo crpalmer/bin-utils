@@ -1,0 +1,17 @@
+#
+# To backup directories to the synology nas you must:
+#
+# - Create a rsa key for root on the machine
+# - Add this key to the rsync user's .ssh/authorized_keys
+# - Create /root/synology-backup-dirs with one directory per line (to backup)
+# - Run this script as root, ideally as a cronjob or service
+
+#!/bin/bash -e
+
+if [ -e /root/synology-backup-dirs ]; then
+    while IFS= read -r i; do
+	dir=`dirname "$i" | sed 's@^/@@' | sed s@/@_@g`
+	rsync --delete -alvz -e ssh "$i" rsync@nas.home::backups/`hostname -s`_"$dir"
+    done < /root/synology-backup-dirs
+fi
+

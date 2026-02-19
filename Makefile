@@ -15,6 +15,7 @@ ROOT = \
 	kernel-status.py \
 	package-compiled-kernel \
 	remove-compiled-kernel \
+	synology-backup-dirs \
 
 # To start a service you sould do:
 # sudo systemctl daemon-reload
