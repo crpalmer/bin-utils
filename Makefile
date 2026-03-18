@@ -1,5 +1,6 @@
 BASHRC = \
 	core.rc \
+	core-dumps.rc \
 	git.rc \
 	linux.rc \
 	pico.rc \
