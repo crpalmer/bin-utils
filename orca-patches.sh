@@ -12,8 +12,8 @@ git reset --hard orca/main
 echo " === Apply patches ==="
 
 # My changes
+gc-series orca/main..me/docker
 gc-series orca/main..me/build-changes
-#gc-series orca/main..me/supports
 gc-series orca/main..me/my-changes
 gc-series orca/main..me/extruder-variant
 
