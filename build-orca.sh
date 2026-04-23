@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./build_linux.sh -j4 -dsie
+./build_linux.sh -j4 -dsi -lL
