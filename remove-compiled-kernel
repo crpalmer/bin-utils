@@ -1,28 +1,32 @@
 #!/bin/bash
 
-if [ "$1" == "" ]
+if [ "$#" -lt 1 ]
 then
    echo "You must specify the version to remove"
    exit 1
 fi
 
-vmlinuz="/boot/vmlinuz-$1"
-initramfs="/boot/initramfs-$1.img"
-modules="/lib/modules/$1"
-loader="/boot/loader/entries/*-$1.conf"
-dtbs="/boot/dtbs/$1"
-config="/boot/config-$1"
-git="/boot/git-$1"
+for i in $*
+do
+  vmlinuz="/boot/vmlinuz-$i"
+  initramfs="/boot/initramfs-$i.img"
+  modules="/lib/modules/$i"
+  loader="/boot/loader/entries/*-$i.conf"
+  dtbs="/boot/dtbs/$i"
+  config="/boot/config-$i"
+  git="/boot/git-$i"
 
-echo $loader
+  echo $loader
 
-if [ ! -e "$vmlinuz" ]
-then
-   echo "Kernel not installed: no $vmlinuz"
-   exit 2
-fi
+  if [ ! -e "$vmlinuz" ]
+  then
+     echo "Kernel not installed: no $vmlinuz"
+     exit 2
+  fi
 
-echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader" "$dtbs" "$config" "$git"
-rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config $git
+  echo rm -rf "$vmlinuz" "$initramfs" "$modules" "$loader" "$dtbs" "$config" "$git"
+  rm -rf "$vmlinuz" "$initramfs" "$modules" $loader $dtbs $config $git
+done
+
 echo "Updating bootlist"
 grub2-mkconfig -o /boot/grub2/grub.cfg
