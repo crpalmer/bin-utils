@@ -27,3 +27,10 @@ gc-series() {
   done
 }
 
+function gc-pr() {
+    R=tmp-pull-request
+    git branch -D $R
+    git fetch orca pull/$1/head:$R
+    gc-series orca/main..$R
+}
+
