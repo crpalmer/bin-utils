@@ -31,6 +31,7 @@ UTILS = \
 	orca-postprocess.sh \
 	$(PG_UTILS) \
 	rdp-tunnel.sh \
+	update-dns.py \
 
 all:
 	echo "Try make install"

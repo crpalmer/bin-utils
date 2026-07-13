@@ -2,4 +2,8 @@ export PATH=/usr/lib/ccache:"$PATH":~/bin/:~/.local/bin/
 export EDITOR=vim
 export GNUMAKEFLAGS=-j16
 
+if [ -e ~/.cloudflare.key ]; then
+  export CLOUDFLARE_API_TOKEN=`cat ~/.cloudflare.key`
+fi
+
 alias ls="ls -F"
