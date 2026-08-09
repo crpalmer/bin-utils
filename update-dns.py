@@ -67,7 +67,7 @@ controller = UnifiController(
 
 print("Unifi: Logged in, attempting to retrieve the sites")
 
-devices = controller.get_unifi_site_client(site_name="0it6q3bo")
+devices = controller.get_unifi_site_client(site_name="iq29dsoj")
 
 print("Logging in to cloudflare")
 
