@@ -5,3 +5,5 @@ export PICO_PLAYGROUND_PATH=/home/crpalmer/pico/pico-playground
 
 export WIFI_SSID=palmer
 export WIFI_PASSWORD=ilvtbzilvtbz
+
+alias thonny=/home/crpalmer/apps/thonny/bin/thonny
